@@ -15,7 +15,12 @@ function idiv(...nums){
 }
 
 
-module.exports.sum = sum;
-module.exports.sub = sub;
-module.exports.imul = imul;
-module.exports.idiv = idiv;
+// exports.sum = sum;
+// exports.sub = sub;
+// exports.imul = imul;
+// exports.idiv = idiv;
+
+// module.exports = {sum, sub, imul, idiv}; /// ---- right 
+exports = {sum, sub, imul, idiv}; /// ------- wrong
+
+
