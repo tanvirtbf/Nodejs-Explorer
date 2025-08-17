@@ -1,9 +1,11 @@
-const sum = require("./sum.js")
-console.log(typeof require);
-// const product = require("./product.js")
+// একবার require করলে পুরো sum.js execute হবে
+const sum1 = require("./sum");  
+const sum2 = require("./sum");  
+const sum3 = require("./sum");  
 
-// console.log(sum(1,2,3,4,5))
+console.log("----- Calling function multiple times -----");
 
-console.log("Hello App!");
-// console.log(product(1,2,3,4))
-console.log(sum);
+// function বারবার call করা হচ্ছে
+console.log("Result 1:", sum1(2, 3));
+console.log("Result 2:", sum2(5, 7));
+console.log("Result 3:", sum3(10, 20));

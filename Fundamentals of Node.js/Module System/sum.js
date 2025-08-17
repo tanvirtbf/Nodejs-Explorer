@@ -1,10 +1,8 @@
-function sum(...nums){
-    return nums.reduce((acc, curr) => acc+curr)
+console.log("✅ sum.js file executing...");
+
+function add(a, b) {
+  console.log(`➡️ Function add(${a}, ${b}) executing...`);
+  return a + b;
 }
 
-console.log('Hello Sum!');
-for(let i=0; i<5; i++){
-    console.log('i is ', i);
-}
-
-module.exports = "Hello World!"
+module.exports = add;
