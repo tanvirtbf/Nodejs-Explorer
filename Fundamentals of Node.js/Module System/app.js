@@ -1,4 +1,4 @@
-const [sum, sub, imul, idiv] = require("./math");
+const {sum, sub, imul, idiv} = require("./math");
 
 
 setInterval(() => {
