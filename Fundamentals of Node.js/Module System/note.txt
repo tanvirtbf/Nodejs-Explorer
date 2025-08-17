@@ -19,3 +19,15 @@ Cache system এর জন্য module একবার load হয়ে গেল
 delete require.cache[require.resolve("./sum")];
 
 require() শুধু file import না, বরং Node.js এর performance optimization strategy
+
+
+
+Important notes : 
+require function mainly 3 ta step e kaj kore 
+1. prothome dekhbe er vitor jei path deya ase sekhane file ase kina
+2. file paile setake execute kore dibe without any call
+3. tarpor se dekhbe module.exports file ki return korse seta niye ashbe 
+
+
+
+require function syncronous function . tar mane holo jodi 1 number line e require function diye kono module return kora hoy tahole sei module er file ke khuje jotokkhon na sob ta module execute na korbe totokkhon main thread block thakbe . tar mane holo main file er code 2nd line e jabe na 
