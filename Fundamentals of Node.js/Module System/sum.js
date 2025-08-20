@@ -6,3 +6,5 @@ const obj = {
 const duplicate = obj.name;
 
 module.exports = duplicate;
+
+
