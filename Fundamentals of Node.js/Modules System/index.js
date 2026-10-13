@@ -43,3 +43,10 @@
 // console.log(math.div(1,2,3,4))
 
 
+const math = require('./math/math')
+
+
+console.log(math[0](1,2,3,4))
+console.log(math[1](1,2,3,4))
+console.log(math[2](1,2,3,4))
+console.log(math[3](1,2,3,4))
