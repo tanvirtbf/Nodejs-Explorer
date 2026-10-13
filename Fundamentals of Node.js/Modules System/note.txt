@@ -1,0 +1,171 @@
+# Node.js Module System
+
+## 1. What is a Module System?
+
+Module System হলো এমন একটি system, যার মাধ্যমে আমরা একটি program-এর code-কে ছোট ছোট আলাদা file বা module-এ ভাগ করতে পারি এবং প্রয়োজন অনুযায়ী এক file-এর code অন্য file-এ ব্যবহার করতে পারি।
+
+বড় project-এ সব code একটি file-এ না লিখে আলাদা file-এ রাখলে code maintain, reuse এবং debug করা সহজ হয়।
+
+**Example:**
+
+ধরো, একটি project-এ তিনটি file আছে:
+
+- `math.js` — mathematical functions
+- `user.js` — user-related functions
+- `app.js` — main application
+
+`app.js` থেকে প্রয়োজন অনুযায়ী `math.js` এবং `user.js`-এর functions ব্যবহার করা যাবে। এই কাজের জন্য Module System ব্যবহার করা হয়।
+
+## 2. Types of Module Systems in Node.js
+
+Node.js-এ প্রধানত দুই ধরনের Module System রয়েছে:
+
+1. CommonJS (CJS)
+2. ECMAScript Modules (ESM)
+
+## 3. CommonJS (CJS)
+
+CommonJS হলো Node.js-এর traditional module system।
+
+এখানে একটি module থেকে অন্য module-এ code export করতে `module.exports` এবং import করতে `require()` ব্যবহার করা হয়।
+
+### Example
+
+**math.js**
+
+```js
+const add = (a, b) => a + b;
+
+module.exports = { add };
+```
+
+**app.js**
+
+```js
+const { add } = require("./math.js");
+
+console.log(add(10, 20)); // 30
+```
+
+এখানে:
+
+- `module.exports` দিয়ে function export করা হয়েছে।
+- `require()` দিয়ে অন্য file থেকে function import করা হয়েছে।
+- `./math.js` বর্তমান directory-এর `math.js` file-কে নির্দেশ করে।
+
+### CommonJS কোথায় ব্যবহার হয়?
+
+- পুরোনো Node.js project-এ।
+- যেসব project CommonJS format ব্যবহার করে।
+- CommonJS-ভিত্তিক library বা configuration file-এ।
+
+## 4. ECMAScript Modules (ESM)
+
+ECMAScript Modules হলো JavaScript-এর standard module system। Node.js-এ এটি `import` এবং `export` syntax ব্যবহার করে।
+
+### Example
+
+**math.js**
+
+```js
+export const add = (a, b) => a + b;
+```
+
+**app.js**
+
+```js
+import { add } from "./math.js";
+
+console.log(add(10, 20)); // 30
+```
+
+এখানে:
+
+- `export` দিয়ে function অন্য module-এর জন্য available করা হয়েছে।
+- `import` দিয়ে অন্য file থেকে function আনা হয়েছে।
+
+### Node.js-এ ESM enable করার উপায়
+
+`package.json` file-এ নিচের configuration লিখতে হয়:
+
+```json
+{
+  "type": "module"
+}
+```
+
+এতে ওই package-এর `.js` file-গুলো ESM হিসেবে বিবেচিত হবে।
+
+অথবা `.mjs` extension ব্যবহার করেও ESM file তৈরি করা যায়।
+
+### ESM কোথায় ব্যবহার হয়?
+
+- আধুনিক Node.js project-এ।
+- JavaScript frontend ও backend code-এ।
+- যেসব library `import` ও `export` syntax ব্যবহার করে।
+- আধুনিক JavaScript ecosystem-এর সঙ্গে কাজ করার ক্ষেত্রে।
+
+## 5. CommonJS vs ESM
+
+| বিষয় | CommonJS | ESM |
+|---|---|---|
+| Import | `require()` | `import` |
+| Export | `module.exports` | `export` |
+| File extension | `.cjs` অথবা CommonJS হিসেবে configured `.js` | `.mjs` অথবা ESM হিসেবে configured `.js` |
+| Loading | `require()` সাধারণত synchronous | Static `import` module loading-এর অংশ; dynamic `import()` asynchronous |
+| Standard | Node.js-এর traditional system | JavaScript-এর standard module system |
+
+## 6. Named Export vs Default Export in ESM
+
+ESM-এ দুইভাবে export করা যায়।
+
+### Named Export
+
+```js
+// math.js
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+```
+
+Import:
+
+```js
+import { add, subtract } from "./math.js";
+```
+
+Named export-এর ক্ষেত্রে সাধারণত export করা নাম অনুযায়ী import করতে হয়। প্রয়োজন হলে `as` ব্যবহার করে নাম পরিবর্তন করা যায়।
+
+### Default Export
+
+```js
+// math.js
+const add = (a, b) => a + b;
+
+export default add;
+```
+
+Import:
+
+```js
+import add from "./math.js";
+```
+
+Default export import করার সময় নিজের পছন্দমতো নাম ব্যবহার করা যায়।
+
+## 7. Important Notes
+
+- একটি file-কে module হিসেবে ব্যবহার করলে code আলাদা ও reusable রাখা যায়।
+- CommonJS-এ `require()` এবং `module.exports` ব্যবহার করা হয়।
+- ESM-এ `import` এবং `export` ব্যবহার করা হয়।
+- ESM-এ `import()` ব্যবহার করে dynamic import করা যায়।
+- একই project-এ CommonJS এবং ESM দুই ধরনের file থাকতে পারে, তবে সঠিক configuration ও interoperability rules মানতে হয়।
+- `package.json`-এ `"type": "module"` থাকলে সাধারণ `.js` file-গুলো ESM হিসেবে বিবেচিত হয়।
+- `.cjs` file CommonJS এবং `.mjs` file ESM হিসেবে বিবেচিত হয়।
+
+## Conclusion
+
+Module System-এর প্রধান উদ্দেশ্য হলো code-কে আলাদা module-এ ভাগ করা, code reuse করা এবং project maintain করা সহজ করা।
+
+Node.js-এ প্রধান দুইটি Module System হলো CommonJS এবং ESM। CommonJS-এ `require()` ও `module.exports` ব্যবহার করা হয়, আর ESM-এ `import` ও `export` ব্যবহার করা হয়।
+
+আধুনিক JavaScript development-এর জন্য ESM ভালোভাবে শেখা গুরুত্বপূর্ণ। পাশাপাশি CommonJS সম্পর্কে ধারণা থাকলে পুরোনো Node.js project বুঝতে সুবিধা হবে।
