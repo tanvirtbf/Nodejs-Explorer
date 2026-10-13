@@ -12,7 +12,10 @@ const div = require('./divide')
 // module.exports = { sum, sub , mul, div }
 // module.exports = [sum, sub, mul, div]
 
-module.exports.sum = sum;
-module.exports.sub = sub;
-module.exports.mul = mul;
-module.exports.div = div;
+// module.exports.sum = sum;
+// module.exports.sub = sub;
+// module.exports.mul = mul;
+// module.exports.div = div;
+
+
+exports.sum = sum;

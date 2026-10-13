@@ -69,3 +69,6 @@
 
 // Module.exports VS Exports
 
+const { sum } = require('./math/math')
+
+console.log(sum(1,2,3,4))
