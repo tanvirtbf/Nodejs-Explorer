@@ -36,6 +36,22 @@
 
 // const math = require('./math/math')
 
+// console.log(math.sum(1,2,3,4))
+// console.log(math.sub(1,2,3,4))
+// console.log(math.mul(1,2,3,4))
+// console.log(math.div(1,2,3,4))
+
+
+// const math = require('./math/math')
+
+// console.log(math[0](1,2,3,4))
+// console.log(math[1](1,2,3,4))
+// console.log(math[2](1,2,3,4))
+// console.log(math[3](1,2,3,4))
+
+
+
+// const math = require('./math/math')
 
 // console.log(math.sum(1,2,3,4))
 // console.log(math.sub(1,2,3,4))
@@ -43,10 +59,13 @@
 // console.log(math.div(1,2,3,4))
 
 
-const math = require('./math/math')
+// const { sum, sub, mul, div } = require('./math/math')
+
+// console.log(sum(1,2,3,4))
+// console.log(sub(1,2,3,4))
+// console.log(mul(1,2,3,4))
+// console.log(div(1,2,3,4))
 
 
-console.log(math[0](1,2,3,4))
-console.log(math[1](1,2,3,4))
-console.log(math[2](1,2,3,4))
-console.log(math[3](1,2,3,4))
+// Module.exports VS Exports
+
