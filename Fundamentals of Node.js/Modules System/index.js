@@ -22,12 +22,24 @@
 // console.log(typeof(sum))
 
 
-const sum = require('./math/sum')
-const sub = require('./math/subtract')
-const mul = require('./math/multiply')
-const div = require('./math/divide')
+// const sum = require('./math/sum')
+// const sub = require('./math/subtract')
+// const mul = require('./math/multiply')
+// const div = require('./math/divide')
 
-console.log(sum(1,2,3))
-console.log(sub(1,2,3))
-console.log(mul(1,2,3))
-console.log(div(1,2,3))
+// console.log(sum(1,2,3))
+// console.log(sub(1,2,3))
+// console.log(mul(1,2,3))
+// console.log(div(1,2,3))
+
+
+
+// const math = require('./math/math')
+
+
+// console.log(math.sum(1,2,3,4))
+// console.log(math.sub(1,2,3,4))
+// console.log(math.mul(1,2,3,4))
+// console.log(math.div(1,2,3,4))
+
+
