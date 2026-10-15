@@ -69,6 +69,8 @@
 
 // Module.exports VS Exports
 
-const { sum } = require('./math/math')
+// const { sum } = require('./math/math')
 
-console.log(sum(1,2,3,4))
+// console.log(sum(1,2,3,4))
+
+// Let's Practice module.exports and exports first 
