@@ -74,3 +74,9 @@
 // console.log(sum(1,2,3,4))
 
 // Let's Practice module.exports and exports first 
+
+const math = require("./math/math")
+// require function ki return kore ? require function only return kore jeta module.exports ase setaii . mane module object er moddhe exports object ase . oi exports object e ja ja thakbe setaii return korbe. 
+
+console.log(math.sum(1,2,3))
+console.log(math.mul(1,2,3,4))
