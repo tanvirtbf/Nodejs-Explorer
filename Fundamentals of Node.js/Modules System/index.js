@@ -18,9 +18,7 @@
 // Question : require function ki return kore ? 
 // Answer : './sum' file e thaka module.exports ja return kore setaii require function er return value 
 
-
 // console.log(typeof(sum))
-
 
 // const sum = require('./math/sum')
 // const sub = require('./math/subtract')
@@ -31,8 +29,6 @@
 // console.log(sub(1,2,3))
 // console.log(mul(1,2,3))
 // console.log(div(1,2,3))
-
-
 
 // const math = require('./math/math')
 

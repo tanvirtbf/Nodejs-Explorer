@@ -1,5 +1,7 @@
+const math = require('./math')
+
 console.log(module)
 
 const value = 10;
 
-exports.value = value
+module.exports = {value}
